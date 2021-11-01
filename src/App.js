@@ -22,8 +22,8 @@ class LambdaDemo extends Component {
         console.log("json", json);
         this.setState({
           loading: false,
-          msg: json?.msg,
-          weather: json?.weather,
+          msg: json.msg || "",
+          weather: json.weather || null,
         });
       });
   };
@@ -38,7 +38,7 @@ class LambdaDemo extends Component {
         </div>
         <p>
           <button onClick={this.handleClick("get-weather")}>
-            {loading ? "Loading..." : "Call Lambda"}
+            {loading ? "Loading..." : "Call Lambda for weather"}
           </button>
           <button onClick={this.handleClick("hello")}>
             {loading ? "Loading..." : "Call Lambda"}
